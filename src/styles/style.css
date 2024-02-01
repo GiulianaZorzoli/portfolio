@@ -20,6 +20,8 @@
     --form-background : #7048ff35;
     --container-background:#e1dcf4;
     --form-border:#2e2687;
+    --backgorund-image: url("public/backgrounds/background-light.png");
+
 }
 
  [tema="dark"]{
@@ -39,6 +41,7 @@
     --form-background : #7048ff35;
     --form-border:#2e2687;
     --container-background:#110f25;
+    --backgorund-image: url("public/backgrounds/background-dark.png");
  }
  [tema="light"]{
     --background-color: #e9e8f2;
@@ -57,6 +60,7 @@
     --form-background : #7048ff35;
     --container-background:#e1dcf4;
     --form-border:#2e2687;
+    --backgorund-image: url("public/backgrounds/background-light.png");
  }
 
 /*GENERAL STYLES*/
@@ -338,7 +342,7 @@ nav button i{
 .carousel-item{
     height: 350px;
     width: 100%;
-    background-color: var(--background-color);
+    background-color: transparent;
     position: relative;
 }
 .carousel-item .skillContainer{
@@ -445,6 +449,10 @@ nav button i{
 }
 
 @media screen and (min-width:1100px){
+    body{
+        background-image: var(--backgorund-image);
+        background-size: cover;
+    }
     nav{
         padding: .5rem;
     }
