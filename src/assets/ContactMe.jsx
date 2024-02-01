@@ -10,7 +10,7 @@ export const ContactMe = () => {
             <input type="text" placeholder='Email*' required name='email' />
             <textarea name="message" id="message" placeholder='Message*'required></textarea>
             <input type="hidden" name='_captcha' value="false" />
-            <input type="hidden" name='_next' value="http://localhost:5173/" />
+            <input type="hidden" name='_next' value="https://giuliana-zorzoli.netlify.app/" />
             <button type='submit'>Let's get to work!</button>
         </form>
         <br />
