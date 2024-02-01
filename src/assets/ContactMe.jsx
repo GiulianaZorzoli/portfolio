@@ -9,7 +9,7 @@ export const ContactMe = ({lang}) => {
   if(lang==false){
     placeholderName='Nombre*';
     placeholderMessage='Mensaje*';
-    buttonText='Enviar';
+    buttonText='¡Trabajemos juntos!';
   }
   return (
     <section id='contact'>
