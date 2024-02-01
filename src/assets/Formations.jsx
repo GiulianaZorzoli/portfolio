@@ -1,11 +1,11 @@
 import React from 'react'
 
-const formations = [
+const formationsEn = [
   {
     id : 1,
     title : "Bachelor of Computer Information Systems",
     academy : "Universidad Nacional de General Sarmiento",
-    date : "2022 - now",
+    date : "may 2022 - now",
     description : "Currently in the third year of the degree. I acquired knowledge on technologies such as Java and Python and programming techniques as Object-Oriented Programming. "
   },
   {
@@ -22,6 +22,29 @@ const formations = [
     date : "february 2023 - may 2023",
     description : "Learned the fundaments of programming, such as programming logic, algorithms and control structures. Also learned the basics of C."
   }
+]
+const formationsEs = [
+  {
+    id : 1,
+    title : "Licenciatura en Sistemas",
+    academy : "Universidad Nacional de General Sarmiento",
+    date : "mayo 2022 - actualidad",
+    description : "Actualmente cursando el tercer año de la carrera. Obtuve conocimientos de tecnologías como Java y Python, y técnicas de programación como la Programación Orientada a Objetos. "
+  },
+  {
+    id: 2,
+    title : "FullStack Java",
+    academy : "Codo A Codo",
+    date : "augosto 2023 - diciembre 2023 ",
+    description : "Aprendí a crear tanto el Front End como el Back End de una aplicación. Obtuve conocimiento de tecnologías como Java, HTML5, CSS3, Bootstrap, JavaScript y MySql."
+  },
+  {
+    id : 3,
+    title : "Fundamentos de la Programación",
+    academy : "Argentina Programa",
+    date : "febrero 2023 - mayo 2023",
+    description : "Aprendí los fundamentos de la programación, como la lógica de programación, algoritmos y estructuras de control. Tambien aprendí los conocimientos básicos de la programación en C."
+  }
 
 ]
 
@@ -36,13 +59,17 @@ export const Formation = ({title,academy,date,description}) => {
   )
 }
 
-export const Formations = () => {
+export const Formations = ({lang}) => {
   return (
     <section id='formation'>
       <br />
-        <h2>Formation</h2>
+        <h2>{lang==true ? 'Formation' : 'Formación'}</h2>
         {
-          formations.map(formation => <Formation key={formation.id} title={formation.title} academy={formation.academy} date={formation.date} description={formation.description}></Formation> )
+          lang==true
+          ?
+            formationsEn.map(formation => <Formation key={formation.id} title={formation.title} academy={formation.academy} date={formation.date} description={formation.description}></Formation> )
+          :
+            formationsEs.map(formation => <Formation key={formation.id} title={formation.title} academy={formation.academy} date={formation.date} description={formation.description}></Formation> )
         }
     </section>
   )

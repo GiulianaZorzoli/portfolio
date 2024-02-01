@@ -1,10 +1,10 @@
 import React from 'react'
 
-export const Skills = () => {
+export const Skills = ({lang}) => {
   return (
     <section  id='skills'>
       <br />
-      <h2>Skills</h2>
+      <h2>{lang == true ? 'Skills' : 'Habilidades'}</h2>
       <div className='skills'>
         <div className='carouselWrapper'>
           <div className='carouselContainer'>

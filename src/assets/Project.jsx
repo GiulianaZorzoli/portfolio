@@ -6,10 +6,8 @@ export const Project = ({title, image, description, fullDescription, repository,
     const toggleShow = ()=>{
         if(showMore){
             setShowMore(false);
-            console.log(showMore);
         }else{
             setShowMore(true);
-            console.log(showMore)
         }
     }
 
@@ -22,7 +20,7 @@ export const Project = ({title, image, description, fullDescription, repository,
         <div className='projectDescription'>
             <div>
                 <h3>{title}</h3>
-                <p>{showMore == false ? description : fullDescription}</p>
+                <p>{showMore == false ? description : fullDescription.map(desc => <p>{desc}</p>)}</p>
             </div>
             <div className='projectButton'>
                 <i onClick={toggleShow} className={showMore == false ? "bi bi-caret-down-fill" : "bi bi-caret-up-fill"}></i>

@@ -20,6 +20,7 @@
     --form-background : #7048ff35;
     --container-background:#e1dcf4;
     --form-border:#2e2687;
+    --button-accent:#6750dc;
     --backgorund-image: url("/backgrounds/background-light.png");
 
 }
@@ -41,6 +42,7 @@
     --form-background : #7048ff35;
     --form-border:#2e2687;
     --container-background:#110f25;
+    --button-accent:rgb(153, 133, 255);
     --backgorund-image: url("/backgrounds/background-dark.png");
  }
  [tema="light"]{
@@ -60,6 +62,7 @@
     --form-background : #7048ff35;
     --container-background:#e1dcf4;
     --form-border:#2e2687;
+    --button-accent:#6750dc;
     --backgorund-image: url("/backgrounds/background-light.png");
  }
 
@@ -90,9 +93,15 @@ h2{
     text-decoration: underline var(--accent-color) 6px;
     margin: 2.5rem 0 1.5rem 1.5rem;
 }
+button:hover:not(.menuButton){
+    background-color:var(--button-accent) !important;
+    transition: all .2s;
+
+}
 
 
 /*Nav*/
+
 
 header{
     position: sticky;
@@ -109,10 +118,24 @@ nav{
     
     
 }
-.theme{
+.themeAndLang{
+    width: 185px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
+.language{
+    border-radius: 5px;
+    background-color: var(--container-background);
+    border:solid 2px var(--accent-color);
+    padding: .2rem 1rem;
+}
+.language:hover{
+    background-color: var(--accent-color) !important;
+    color: white;
+    transition: all .5s;
+}
+
 .toggle-container{
     position: relative;
     display: inline-block;
@@ -187,6 +210,7 @@ nav button i{
     font-size: 2rem;
     color:var(--subtitle-color);
 }
+
 .menuDesktop{
     display: none;
 }
@@ -220,7 +244,10 @@ nav button i{
     opacity: 0;
     transition: opacity .5s ease-in-out;
 }
-
+.navElement:hover{
+    color: var(--accent-color);
+    transition: all .5s;
+}
 /* Name Section*/
 
 .nameSection{
@@ -457,7 +484,7 @@ nav button i{
         padding: .5rem;
     }
 
-    nav button{
+    nav .menuButton{
         display: none;
     }
 
@@ -587,6 +614,9 @@ nav button i{
 @media screen and (max-width:400px){
     p,button{
         font-size: .7rem;
+    }
+    .themeAndLang{
+        width: 160px;
     }
     .nameSection{
         padding:2rem 1rem 3rem 1rem;
