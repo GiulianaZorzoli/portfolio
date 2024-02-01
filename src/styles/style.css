@@ -20,7 +20,7 @@
     --form-background : #7048ff35;
     --container-background:#e1dcf4;
     --form-border:#2e2687;
-    --backgorund-image: url("public/backgrounds/background-light.png");
+    --backgorund-image: url("public\backgrounds\background-light.png");
 
 }
 
@@ -41,7 +41,7 @@
     --form-background : #7048ff35;
     --form-border:#2e2687;
     --container-background:#110f25;
-    --backgorund-image: url("public/backgrounds/background-dark.png");
+    --backgorund-image: url("public\backgrounds\background-dark.png");
  }
  [tema="light"]{
     --background-color: #e9e8f2;
@@ -60,7 +60,7 @@
     --form-background : #7048ff35;
     --container-background:#e1dcf4;
     --form-border:#2e2687;
-    --backgorund-image: url("public/backgrounds/background-light.png");
+    --backgorund-image: url("public\backgrounds\background-light.png");
  }
 
 /*GENERAL STYLES*/
