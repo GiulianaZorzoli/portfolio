@@ -1,0 +1,607 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+
+
+/*COLORS*/
+:root{
+    --background-color: #e9e8f2;
+    --font-color:black;
+    --subtitle-color:#4c25bb;
+    --p-color:rgb(46, 28, 72);
+    --accent-color:#a891fe;
+    --nav-footer-color:#b2c7f7;
+    --gradient-color:#c7d9ff;
+    --shadow-1-color:rgba(185,77,255,1);
+    --shadow-2-color:rgba(65,147,240,1);
+    --border-color:#518bfe;
+    --skill-gradient-1:#afe2ff;
+    --skill-gradient-2:#e7d3ff;
+    --skill-gradient-3:#eeeaff;
+    --form-background : #7048ff35;
+    --container-background:#e1dcf4;
+    --form-border:#2e2687;
+}
+
+ [tema="dark"]{
+    --background-color: #110f25;
+    --font-color:white;
+    --subtitle-color:#d5cbf7;
+    --p-color:rgba(255, 255, 255, 0.758);
+    --accent-color:#7048ff;
+    --nav-footer-color:#1a1737;
+    --gradient-color:#2e2687;
+    --shadow-1-color:rgba(185,77,255,1);
+    --shadow-2-color:rgba(65,147,240,1);
+    --border-color:#518bfe;
+    --skill-gradient-1:#1862f69c;
+    --skill-gradient-2:#4627a5a0;
+    --skill-gradient-3:#9951fe28;
+    --form-background : #7048ff35;
+    --form-border:#2e2687;
+    --container-background:#110f25;
+ }
+ [tema="light"]{
+    --background-color: #e9e8f2;
+    --font-color:black;
+    --subtitle-color:#4c25bb;
+    --p-color:rgb(46, 28, 72);
+    --accent-color:#a891fe;
+    --nav-footer-color:#b2c7f7;
+    --gradient-color:#c7d9ff;
+    --shadow-1-color:rgba(185,77,255,1);
+    --shadow-2-color:rgba(65,147,240,1);
+    --border-color:#518bfe;
+    --skill-gradient-1:#afe2ff;
+    --skill-gradient-2:#e7d3ff;
+    --skill-gradient-3:#eeeaff;
+    --form-background : #7048ff35;
+    --container-background:#e1dcf4;
+    --form-border:#2e2687;
+ }
+
+/*GENERAL STYLES*/
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--background-color);
+    font-family: 'Roboto',sans-serif;
+    color: var(--font-color);
+    width: 100%;
+    height: 100%;
+}
+
+h3{
+    color:var(--subtitle-color) ;
+    margin-bottom: .5rem;
+}
+p{
+    color: var(--p-color);
+}
+h2{
+    text-decoration: underline var(--accent-color) 6px;
+    margin: 2.5rem 0 1.5rem 1.5rem;
+}
+
+
+/*Nav*/
+
+header{
+    position: sticky;
+    z-index: 4;
+    top: 0;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    text-align: right;
+    background-color: var(--nav-footer-color);
+    padding: 0 1rem;
+    border-radius: 0 0 20px 20px;
+    
+    
+}
+.theme{
+    display: flex;
+    align-items: center;
+}
+.toggle-container{
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+    pointer-events: none;
+}
+.toggle-container input{
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: all;
+}
+.slider{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    background-color: #91a2b7;
+    transition: 0.4s;
+    pointer-events: none;
+}
+.slider::before{
+    content:"";
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    left: 8px;
+    bottom: 8px;
+    background-color: #fff;
+    transition: 0.2s;
+    pointer-events: none;
+}
+.slider::after{
+    position: absolute;
+    content: "off";
+    height: 24px;
+    width: 24px;
+    right: 10px;
+    bottom: 6px;
+    transition: 0.2s;
+    pointer-events: none;
+    color: #fff;
+}
+
+.toggle-container input:checked + .slider{
+    background-color: #351f4a;
+}
+.toggle-container input:checked + .slider::before{
+    transform: translateX(40px);
+}
+.toggle-container input:checked + .slider::after{
+    content: "on";
+    left: 8px;
+}
+.slider.round{
+    border-radius: 34px;
+}
+.slider.round::before{
+    border-radius: 50%;
+}
+
+nav button{
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    cursor: pointer;
+}
+nav button i{
+    font-size: 2rem;
+    color:var(--subtitle-color);
+}
+.menuDesktop{
+    display: none;
+}
+.menu{
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 45px; 
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .5s ease-in-out;
+}
+.menu ul{
+    padding: 1rem;
+    background-color: var(--nav-footer-color);
+    width: 160px;
+    height: 160px;
+    border-radius:0 0 0 80%;
+}
+.menu ul li{
+    list-style: none;
+    text-align: right;
+}
+.menu ul li a{
+    text-decoration: none;
+    color: var(--font-color);
+    
+}
+.hidden{
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
+}
+
+/* Name Section*/
+
+.nameSection{
+    display: flex;
+    padding: 2rem;
+}
+.nameSection div{
+    width: 50%;
+}
+.nameSection .imgDiv{
+    text-align: center;
+}
+.nameSection img{
+    width: 150px;
+}
+.nameSection .nameTextDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.nameSection .nameTextDiv button, button{
+    background-color: var(--accent-color);
+    border: none;
+    padding: .5rem 1rem;
+    margin-top: .8rem;
+    border-radius: 20px;
+    width: fit-content;
+    color: var(--font-color);
+}
+.nameSection button a{
+    text-decoration: none;
+    color: white;
+}
+
+/*About Me Section */
+
+.aboutMe{
+    margin: 0 3rem;
+    background-image: linear-gradient(to right top, var(--background-color), var(--gradient-color));
+    padding: 1rem;
+    border-radius: 25px;
+    box-shadow: -8px 10px 39px 0px var(--shadow-1-color),12px -4px 39px 0px var(--shadow-2-color);
+
+}
+.aboutMe p{
+    margin: 0;
+}
+
+/*Project Sextion*/
+.projectContainer,.projectFullContainer{
+    margin: 2rem 1rem;
+    padding: 1rem;
+    border: solid 4px var(--border-color);
+    background-color: var(--container-background);
+    border-radius: 20px;
+    
+}
+.projectFullContainer{
+    display: block !important;    
+}
+.projectContainer{
+   display: flex;
+}
+.projectFullContainer .projectHeader{
+    justify-content: center;
+}
+.projectFullContainer .projectHeader img{
+    width: 200px;
+    
+}
+.projectHeader{
+    display: flex;
+    align-items: center;
+}
+.projectHeader img{
+    transition: all 1s;
+    width: 150px;
+    border-radius: 10px;
+}
+
+.projectDescription{
+    margin-left: 1rem;
+    display: flex;
+    transition: all 1s;
+}
+.projectFullContainer .projectDescription{
+    margin: 1rem 0 0 0;
+}
+.projectFullContainer h3{
+    text-align: center;
+    font-size: 1.8rem;
+    transition: all 1s;
+}
+.projectFullContainer p{
+    text-align: justify;
+}
+.projectButton{
+    display: flex;
+    align-items: end;
+    cursor: pointer;
+}
+.projectFooter{
+    display: flex;
+    justify-content: center;
+    margin: .5rem 1rem;
+}
+.projectFooter button{
+    margin: 0 2rem;
+}
+.projectFooter button a{
+    text-decoration: none;
+    color: var(--font-color);
+}
+
+/*Skills*/
+.carouselContainer{
+    margin: 2rem;
+}
+.carousel-item{
+    height: 350px;
+    width: 100%;
+    background-color: var(--background-color);
+    position: relative;
+}
+.carousel-item .skillContainer{
+    height: 100%;
+    width: 70%;
+    background: linear-gradient(to right top, var(--skill-gradient-1), var(--skill-gradient-2), var(--skill-gradient-3));
+    border: solid 4px var(--border-color);
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.carousel-item div h3{
+    text-align: center;
+    margin: .5rem;
+}
+.carousel-item .skillLogo{
+    text-align: center;
+    height: 95px;
+    color: var(--font-color);
+}
+.carousel-item div i{
+    font-size: 80px;
+}
+
+.skillsContainer{
+    margin: 1.5rem 0;
+    height: 70px;
+    display: flex;
+    justify-content: space-around;
+}
+.skillsContainer h6{
+    font-size: .8rem;
+    margin-top: .2rem;
+}
+.skillContainer .skill{
+    width: 60px;
+    text-align: center;
+    font-size: .7rem;
+    font-weight:lighter;
+}
+.skillContainer img{
+    height: 50px;
+    max-width: 70px;
+}
+
+/*Formation*/
+.formationContainer{
+    margin: 2rem 1rem;
+    padding: .5rem .8rem;
+    border: solid 4px var(--border-color);
+    background-color: var(--container-background);
+    border-radius: 20px;
+}
+
+/*ContactMe*/
+.contactForm{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 2rem;
+}
+.contactForm input, .contactForm textarea{
+    background-color: var(--form-background);
+    color: var(--font-color);
+    padding: .5rem;
+    border-radius: 10px;
+    border: solid 2px var(--form-border);
+    margin: .5rem;
+    resize: none;
+}
+.contactForm input:focus, .contactForm textarea:focus{
+    outline: none;
+}
+.contactForm input::placeholder, .contactForm textarea::placeholder{
+    color: var(--p-color);
+}
+.contactForm button{
+    width: 100%;
+    border-radius: 10px;
+}
+
+/*Footer*/
+
+.footer{
+    height: 170px;
+    background-color: var(--nav-footer-color);
+    padding: 2rem;
+    margin: 2rem 0 0 0 ;
+}
+.footer div{
+    text-align: center;
+}
+.footer a i{
+    font-size: 1.5rem;
+    margin: 0 1.5rem;
+    color: var(--font-color);
+}
+
+@media screen and (min-width:1600px){
+    .projectWrapper{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+@media screen and (min-width:1100px){
+    nav{
+        padding: .5rem;
+    }
+
+    nav button{
+        display: none;
+    }
+
+    .menuDesktop{
+        display: inline;
+    }
+
+    .menuDesktop a{
+        text-decoration: none;
+        color:white;
+        padding: 0 .4rem;
+        cursor: pointer;
+    }
+
+    .nameSection{
+        justify-content: center;
+        padding: 2.5rem;
+    }
+    .nameTextDiv{
+        width:300px !important;
+    }
+    .nameTextDiv h1{
+        font-size: 3rem;
+        font-weight: bold;
+    }
+    .imgDiv{
+        width: 300px !important;
+    }
+    .imgDiv img{
+       width: 250px; 
+    }
+    .aboutMe{
+        width: 500px;
+    }
+    .aboutmeContainer{
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+    }
+    .projectWrapper{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .projectContainer{
+        width: 500px;
+        height: 200px;
+    }
+    .projectHeader img{
+        width: 200px;
+    }
+    .projectFullContainer .projectHeader img{
+        width: 500px;
+    }
+    .carouselContainer{
+        max-width: 1200px;
+        width: 1200px;
+    }
+    .skills{
+        display: flex;
+        justify-content: center;
+    }
+    .skillContainer{
+        display: flex;
+    }
+    .skillHeader{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .skillHeader div i{
+        font-size: 120px;
+    }
+    .skillLogo{
+        margin-bottom: 2rem;
+    }
+    .skillHeader h3{
+        margin-top: 2rem !important;
+    }
+    .skillsWrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+    }
+    .skillsContainer{
+        height: 120px;
+    }
+    .skill{
+        width: 70px !important;
+        display: flex;
+        flex-direction: column;
+        margin: 1.5rem;
+        font-size: 2rem;
+    }
+    .skill img{
+        width: 90px !important;
+        min-height: 70px !important;
+    }
+    .skill h6{
+        text-align: center;
+        font-size: 1rem;
+        margin-top: .5rem;
+        font-weight: bold;
+    }
+    .contactForm{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .contactForm input, .contactForm textarea, .contactForm button{
+        width: 600px;
+    }
+
+}
+@media screen and (min-width:700px){
+    .projectWrapper{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        align-items: center;
+        justify-items: center;
+    }
+}
+
+@media screen and (max-width:400px){
+    p,button{
+        font-size: .7rem;
+    }
+    .nameSection{
+        padding:2rem 1rem 3rem 1rem;
+    }
+    .imgDiv img{
+        width: 100px;
+    }
+    .projectHeader img{
+        width: 100px;
+    }
+    .skill img{
+        width: 35px;
+        height: 35px; 
+    }
+    .skill h6{
+        margin-top: .2rem;
+        font-size: .7rem;
+    }
+}
+@media screen and (max-width:300px){
+    h3,h4{
+        font-size: 16px;
+    }
+
+}
+
