@@ -93,7 +93,7 @@ h2{
     text-decoration: underline var(--accent-color) 6px;
     margin: 2.5rem 0 1.5rem 1.5rem;
 }
-button:hover:not(.menuButton){
+button:hover:not(.menuButton):not(.carouselBTN){
     background-color:var(--button-accent) !important;
     transition: all .2s;
 
